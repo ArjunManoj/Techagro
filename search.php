@@ -11,7 +11,7 @@ session_start();
 	if(isset($_POST['search'])){
 		$name=$_POST['data'];
 		$query = "SELECT * FROM crops WHERE cropname='$name' OR district='$name'";
-	    $messages = mysqli_query($db, $query);
+	    $result = mysqli_query($db, $query);
 	    /*if(mysqli_num_rows($messages)==0){
 	    	header("Location: search.php?error=NO%20Records%20Found");
 	    }*/
@@ -100,7 +100,7 @@ session_start();
 			      </tr>
 			    </thead>
 			    <tbody>
-			      <?php while($row=mysqli_fetch_assoc($messages)):?>
+			      <?php while($row=mysqli_fetch_assoc($result)):?>
 			      	<tr>
 			      		<td><?php echo $row['firstname'];?></td>
 			      		<td><?php echo $row['lastname'];?></td>
